@@ -1,72 +1,72 @@
 # Who Was the Attacker? 🔐  
-_Classificação de atacantes em incidentes de cibersegurança (2015–2024)_
+_Attacker classification in cybersecurity incidents (2015–2024)_
 
-## 📌 Contexto
-O dataset **Global Cybersecurity Threats (2015–2024)** reúne incidentes digitais em diversos países e setores.  
-Cada registro descreve um ataque: tipo, indústria-alvo, prejuízo financeiro, número de usuários afetados, vulnerabilidade explorada, mecanismos de defesa e tempo de resolução.
+## 📌 Context
+The **Global Cybersecurity Threats (2015–2024)** dataset compiles digital incidents across various countries and industries.  
+Each record describes an attack: type, target industry, financial loss, number of affected users, exploited vulnerability, defense mechanisms, and resolution time.
 
-Este projeto segue a metodologia **CRISP-DM** para responder a uma questão central de negócio:
+This project follows the **CRISP-DM** methodology to answer one central business question:
 
-👉 **Quem foi o atacante?**  
-*(Hacker Group, Insider, Nation-state ou Unknown)*
+👉 **Who was the attacker?**  
+*(Hacker Group, Insider, Nation-state, or Unknown)*
 
 ---
 
-## 🛠️ Tecnologias utilizadas
-- **Linguagem:** Python 3  
-- **Bibliotecas de análise e visualização:** `pandas`, `numpy`, `matplotlib`, `seaborn`, `plotly`  
+## 🛠️ Technologies Used
+- **Language:** Python 3  
+- **Analysis and Visualization Libraries:** `pandas`, `numpy`, `matplotlib`, `seaborn`, `plotly`  
 - **Machine Learning:** `scikit-learn` (RandomForest, ExtraTrees, HistGradientBoosting)  
-- **Validação temporal:** `TimeSeriesSplit`  
-- **Otimização de hiperparâmetros:** `RandomizedSearchCV`, `scipy.stats`  
+- **Temporal Validation:** `TimeSeriesSplit`  
+- **Hyperparameter Optimization:** `RandomizedSearchCV`, `scipy.stats`  
 
 ---
 
-## ⚙️ Metodologia (CRISP-DM)
+## ⚙️ Methodology (CRISP-DM)
 
 - **Business Understanding:**  
-  Definição do problema de negócio e métricas.  
-  - Métrica principal: **Log Loss** (probabilidades úteis para investigação)  
-  - Métrica auxiliar: **F1-Macro** (equilíbrio entre classes)  
-  - Baselines: moda e distribuição empírica (priors).  
+  Definition of the business problem and metrics.  
+  - Main metric: **Log Loss** (probabilities useful for investigation)  
+  - Secondary metric: **F1-Macro** (class balance)  
+  - Baselines: mode and empirical class distribution (priors).  
 
 - **Data Understanding:**  
-  Análise exploratória (tipos de ataque, setores, prejuízos, vulnerabilidades).  
-  Identificação de **missing values**, **dup values** e padrões temporais.  
+  Exploratory analysis (attack types, industries, losses, vulnerabilities).  
+  Identification of **missing values**, **duplicates**, and temporal patterns.  
 
 - **Data Preparation:**  
-  - Encoding de variáveis categóricas (`OrdinalEncoder`, `LabelEncoder`)  
-  - Pipeline com `ColumnTransformer`  
+  - Categorical variable encoding (`OrdinalEncoder`, `LabelEncoder`)  
+  - Pipeline built with `ColumnTransformer`  
 
 - **Modeling:**  
-  - Algoritmos: **RandomForest**, **ExtraTrees**, **HistGradientBoosting**  
-  - Otimização com `RandomizedSearchCV`  
-  - Validação via **TimeSeriesSplit** (sem shuffle).  
+  - Algorithms: **RandomForest**, **ExtraTrees**, **HistGradientBoosting**  
+  - Optimization using `RandomizedSearchCV`  
+  - Validation via **TimeSeriesSplit** (no shuffle).  
 
 - **Evaluation:**  
-  - **Log Loss** e **F1-Macro**  
-  - Matrizes de confusão  
-  - Comparação com baselines  
+  - Metrics: **Log Loss** and **F1-Macro**  
+  - Confusion matrices  
+  - Comparison with baselines  
 
-- **Deployment / Próximos Passos:**  
-  - Publicação do notebook no Kaggle  
-  - Modelagem de **tempo de resolução** e **custo financeiro** (regressão multioutput)  
-  - Monitoramento de drift e análise de robustez  
-
----
-
-## 📊 Resultados iniciais
-- Modelos de árvores de decisão alcançaram ligera melhora em relação aos baselines.  
+- **Deployment / Next Steps:**  
+  - Publish the notebook on Kaggle  
+  - Extend modeling to **resolution time** and **financial cost** (multi-output regression)  
+  - Monitor data drift and robustness  
 
 ---
 
-## 🚀 Próximas etapas
-- Previsão de **tempo de resolução** (Incident Resolution Time) e **custo financeiro**.  
-- Testes com modelos adicionais.  
-- Exploração de técnicas de explicabilidade (SHAP, feature importance).  
+## 📊 Initial Results
+- Tree-based models achieved slight improvement over the baselines.  
 
 ---
 
-## 🔗 Acesso
-- [Notebook no Kaggle](https://www.kaggle.com/code/diogonoglima/who-was-the-attacker)  
+## 🚀 Next Steps
+- Predict **Incident Resolution Time** and **Financial Loss**.  
+- Experiment with additional models.  
+- Explore explainability techniques (SHAP, feature importance).  
 
+---
+
+## 🔗 Access
+- [Kaggle Notebook (English)](https://www.kaggle.com/code/diogonoglima/who-attacked)  
+- [Kaggle Notebook (Portuguese)](https://www.kaggle.com/code/diogonoglima/quem-atacou)  
 ---
